@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoList 任务管理</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">
+                <i class="fas fa-tasks"></i>
+                TodoList
+            </h1>
+            <p class="subtitle">管理您的日常任务</p>
+        </header>
+
+        <main class="main-content">
+            <!-- 任务输入区域 -->
+            <section class="task-input-section">
+                <div class="input-container">
+                    <input type="text" id="task-input" class="task-input" placeholder="添加新任务..." maxlength="100">
+                    <button id="add-btn" class="add-btn" type="button">
+                        <i class="fas fa-plus"></i>
+                        添加
+                    </button>
+                </div>
+            </section>
+
+            <!-- 任务筛选和统计区域 -->
+            <section class="task-controls">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">
+                        全部 <span class="count" id="all-count">0</span>
+                    </button>
+                    <button class="filter-btn" data-filter="active">
+                        未完成 <span class="count" id="active-count">0</span>
+                    </button>
+                    <button class="filter-btn" data-filter="completed">
+                        已完成 <span class="count" id="completed-count">0</span>
+                    </button>
+                </div>
+                <button id="clear-completed" class="clear-btn">
+                    <i class="fas fa-trash"></i>
+                    清除已完成
+                </button>
+            </section>
+
+            <!-- 任务列表展示区域 -->
+            <section class="task-list-section">
+                <ul id="task-list" class="task-list">
+                    <!-- 任务项将通过JavaScript动态添加 -->
+                </ul>
+                <div id="empty-state" class="empty-state">
+                    <i class="fas fa-clipboard-list"></i>
+                    <p>暂无任务，添加您的第一个任务吧！</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2023 TodoList App. 使用 HTML5, CSS3 & JavaScript 构建</p>
+        </footer>
+    </div>
+
+    <!-- 编辑任务的模态框 -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>编辑任务</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="edit-task-input" class="edit-input" maxlength="100">
+            </div>
+            <div class="modal-footer">
+                <button id="save-edit" class="save-btn">保存</button>
+                <button id="cancel-edit" class="cancel-btn">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
